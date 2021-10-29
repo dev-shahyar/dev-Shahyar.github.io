@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  
+  margin: 0;
+  padding: 0;
+  
+}
+.background{
+  background-color: #ffffff;
+}
+
+
+.sh-nav {
+  height: 60px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.sh-nav > .sh-nav-header {
+  display: inline;
+}
+
+.sh-nav > .sh-nav-header > .sh-nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #5c00f0;
+  padding: 10px 10px 10px 10px;
+  font-family: 'Lobster Two', cursive;
+}
+
+.sh-nav > .sh-nav-btn {
+  display: none;
+}
+
+.sh-nav > .sh-nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.sh-nav > .sh-nav-links > a {
+  display: inline-block;
+  padding: 7px 20px ;
+  margin: 10px;  
+  text-decoration: none;
+  border-radius: 10px;
+  color: #5c00f0;
+  transition: .4s;
+}
+
+.sh-nav > .sh-nav-links > a:hover {
+  background-color:#5c00f0;
+  color: #fff;
+  box-shadow: 0px 0px 8px 7px #5c00f0;
+}
+
+.sh-nav > #sh-nav-check {
+  display: none;
+}
+
+@media (max-width:770px) {
+
+  .sh-nav > .sh-nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+  }
+
+  .sh-nav > .sh-nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .sh-nav > .sh-nav-btn > label:hover,.sh-nav  #sh-nav-check:checked ~ .sh-nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.09s);
+    border-radius: 10px ;
+  }
+  .sh-nav > .sh-nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #5c00f0;
+  }
+
+  .sh-nav > .sh-nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+    margin-top: 10px;
+  }
+  .sh-nav > .sh-nav-links > a {
+    display: block;
+  }
+  .sh-nav > #sh-nav-check:not(:checked) ~ .sh-nav-links {
+    height: 0px;
+  }
+  .sh-nav > #sh-nav-check:checked ~ .sh-nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
+
+/* flip card */
+.flip-box {
+  background-color: transprearent;
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  transition: transform .8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the front side */
+.flip-box-front {
+  background-color: #e1e1e1;
+  color: #000;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: #fff;
+  box-shadow:0 5px 10px 1px #000;
+  transform: rotateY(180deg);
+}
+img{
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;
+}
+/* icon styles */
+.sm a{
+  display: inline-block;
+  font-size: 25px;
+  color: #5c00f0;
+  /* box-shadow: 0 0 10px 1px #000; */
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  transition: .4s linear;
+  position: relative;
+}
+
+.sm a::before, .sm a::after{
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: .4s linear;
+}
+
+.sm a:hover{
+  transform: scale(.8);
+  color: #00ff2a;
+  text-shadow: 0 1px .3px #000;
+}
+
+.sm a:hover::before{
+/* border-left: 4px solid;
+border-right: 4px solid; */
+  transform:skewX(20deg) ;
+  box-shadow:0 0 1px 1px #00ff2a, 0 0 1px 1px #000;
+}
+
+.sm a:hover::after{
+  /* border-top: 4px solid;
+  border-bottom: 4px solid;   */
+  transform: skewY(-20deg);
+  box-shadow:0 0 1px 1px #00ff2a, 0 0 1px 1px #000;
+}
+
+@media (max-width:530px){
+  .flip-box{
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .flip-box-inner{
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .flip-box-front,
+  .flip-box-back {
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+  }
+
+  img{
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+  }
+}
+/* end flip card */
+/* home section */
+#home{
+  box-shadow: 0 0px 10px 4px #000;
+  margin: 50px;
+  margin-bottom: 100px;
+  border-radius: 40px;
+  transition: .5s;
+  
+}
+#home:hover{
+  box-shadow: 0 0px 10px 4px #5c00f0;
+}
+
+.welcome{
+  font-family: 'Gluten', cursive;
+}
+
+.name{
+  color: #5c00f0;
+  font-size: 20px;
+  
+}
+
+.job{
+  color: red;
+  letter-spacing: 2px;
+  font-family: 'Gluten', cursive;
+}
+/* end home section */
+/* My dtory swction */
+.sh-content{
+  color: #5c00f0;
+  padding-top: 30px;
+  font-size: 70px;
+  font-family: 'Gluten', cursive;
+}
+
+#Mystory{
+  box-shadow: 0 0px 10px 4px #000;
+  margin: 50px;
+  border-radius: 40px;
+  transition: .5s;
+}
+#Mystory:hover{
+  box-shadow: 0 0px 10px 4px #5c00f0;
+}
+.about {
+  font-family: 'Varela Round', sans-serif;
+  color: #3e00a1;
+  text-shadow: 0 1px 10px #000;
+  font-size:20px;
+  margin: 0px 60px 60px 60px;
+}
+@media  (max-width:693px){
+  .sh-content{
+    color: #5c00f0;
+    padding-top: 30px;
+    font-size: 50px;
+    font-family: 'Gluten', cursive;
+  }
+
+  .about {
+    font-family: 'Varela Round', sans-serif;
+    color: #3e00a1;
+    text-shadow: 0 1px 10px rgb(0, 0, 0);
+    font-size:15px;
+    margin: 0px 20px 40px 20px;
+  }
+}
+/* end My dtory swction */
